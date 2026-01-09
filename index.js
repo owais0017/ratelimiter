@@ -56,8 +56,6 @@ app.use(async (req, res, next) => {
             console.log(`Blocked IP: ${my_ip} | Requests: ${currentRequests}`);
             return res.status(429).send("Too many requests. Please wait 10 seconds.");
         }
-
-        // 4. Continue to the route
         next();
     } catch (err) {
         console.error("Redis Rate Limiter Error:", err);
